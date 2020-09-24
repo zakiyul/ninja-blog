@@ -9,6 +9,8 @@
   </div>
 </template>
 <script>
+import searchMixin from "../mixins/searchMixin";
+
 export default {
   data() {
     return {
@@ -21,13 +23,7 @@ export default {
       .get("https://jsonplaceholder.typicode.com/posts")
       .then((res) => (this.blogs = res.body));
   },
-  computed: {
-    filteredBlogs: function () {
-      return this.blogs.filter((blog) => {
-        return blog.title.match(this.search);
-      });
-    },
-  },
+  computed: {},
   filters: {
     jadiBesar(value) {
       return value.toUpperCase();
@@ -40,6 +36,7 @@ export default {
       },
     },
   },
+  mixins: [searchMixin],
 };
 </script>
 <style scoped>

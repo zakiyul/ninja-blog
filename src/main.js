@@ -3,6 +3,8 @@ import App from "./App.vue";
 import VueResource from "vue-resource";
 
 Vue.use(VueResource);
+
+//Directive
 Vue.directive("rainbow", {
   bind(el, binding, vnode) {
     el.style.color =
@@ -23,6 +25,14 @@ Vue.directive("theme", {
       (el.style.background = "#ddd"), (el.style.padding = "20px");
     }
   }
+});
+
+//Filters
+Vue.filter("uppercase", value => {
+  return value.toUpperCase();
+});
+Vue.filter("snippet", value => {
+  return value.slice(0, 100) + "...";
 });
 
 new Vue({

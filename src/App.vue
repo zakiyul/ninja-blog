@@ -1,5 +1,5 @@
 <template>
-  <show-blogs></show-blogs>
+  <router-view></router-view>
 </template>
 
 <script>
@@ -9,8 +9,8 @@ import ShowBlogs from "./components/showBlog";
 export default {
   components: {
     "add-blog": AddBlog,
-    "show-blogs": ShowBlogs,
-  },
+    "show-blogs": ShowBlogs
+  }
 };
 </script>
 

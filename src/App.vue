@@ -1,19 +1,22 @@
 <template>
-  <add-blog></add-blog>
+  <show-blogs></show-blogs>
 </template>
 
 <script>
 import AddBlog from "./components/addBlog";
+import ShowBlogs from "./components/showBlog";
 
 export default {
   components: {
     "add-blog": AddBlog,
+    "show-blogs": ShowBlogs,
   },
 };
 </script>
 
 <style>
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Nunito", sans-serif;
 }
 </style>

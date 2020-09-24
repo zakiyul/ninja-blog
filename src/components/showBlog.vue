@@ -3,7 +3,7 @@
     <h1>All Blog Articles</h1>
     <input type="text" v-model="search" placeholder="search blog.." />
     <div class="single-blog" v-for="blog in filteredBlogs" :key="blog.id">
-      <h2 v-rainbow>{{ blog.title | uppercase }}</h2>
+      <h2 v-pelangi>{{ blog.title | jadiBesar }}</h2>
       <article>{{ blog.body | snippet }}</article>
     </div>
   </div>
@@ -26,6 +26,18 @@ export default {
       return this.blogs.filter((blog) => {
         return blog.title.match(this.search);
       });
+    },
+  },
+  filters: {
+    jadiBesar(value) {
+      return value.toUpperCase();
+    },
+  },
+  directives: {
+    pelangi: {
+      bind(el, binding, vnode) {
+        el.style.color = "#" + Math.random().toString().slice(2, 8);
+      },
     },
   },
 };

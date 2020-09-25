@@ -6,7 +6,7 @@
       <router-link v-bind:to="`/blog/${blog.id}`">
         <h2 v-pelangi>{{ blog.title | jadiBesar }}</h2>
       </router-link>
-      <article>{{ blog.body | snippet }}</article>
+      <article>{{ blog.content | snippet }}</article>
     </div>
   </div>
 </template>
@@ -22,8 +22,16 @@ export default {
   },
   created() {
     this.$http
-      .get("https://jsonplaceholder.typicode.com/posts")
-      .then((res) => (this.blogs = res.body));
+      .get(`https://vue-ninja-40e81.firebaseio.com/posts.json`)
+      .then((data) => data.json())
+      .then((res) => {
+        var blogsArr = [];
+        for (let key in res) {
+          res[key].id = key;
+          blogsArr.push(res[key]);
+        }
+        this.blogs = blogsArr;
+      });
   },
   computed: {},
   filters: {

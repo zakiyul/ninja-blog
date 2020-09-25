@@ -46,26 +46,22 @@ export default {
         title: "",
         content: " ",
         categories: [],
-        author: ""
+        author: "",
       },
       authors: ["Masasi Kishimoto", "Jun Maeda", "Hajime Isayama"],
-      submitted: false
+      submitted: false,
     };
   },
   methods: {
-    post: function() {
+    post: function () {
       this.$http
-        .post("http://jsonplaceholder.typicode.com/posts", {
-          title: this.blog.title,
-          content: this.blog.content,
-          userId: 1
-        })
-        .then(function(data) {
+        .post("https://vue-ninja-40e81.firebaseio.com/posts.json", this.blog)
+        .then((data) => {
           console.log(data);
           this.submitted = true;
         });
-    }
-  }
+    },
+  },
 };
 </script>
 <style>

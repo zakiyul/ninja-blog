@@ -1,16 +1,21 @@
 <template>
-  <router-view></router-view>
+  <div>
+    <app-header></app-header>
+    <router-view></router-view>
+  </div>
 </template>
 
 <script>
 import AddBlog from "./components/addBlog";
 import ShowBlogs from "./components/showBlog";
+import Navbar from "./components/navbar";
 
 export default {
   components: {
     "add-blog": AddBlog,
-    "show-blogs": ShowBlogs
-  }
+    "show-blogs": ShowBlogs,
+    "app-header": Navbar,
+  },
 };
 </script>
 
